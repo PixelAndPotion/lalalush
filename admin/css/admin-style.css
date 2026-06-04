@@ -1,0 +1,242 @@
+/* This stylesheet contains styles used only for the admin panel */
+/* It controls the admin sidebar, dashboard cards, tables, and layout */
+
+
+/* Main admin layout container */
+/* Uses flexbox to place sidebar and content side-by-side */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* Admin sidebar section */
+/* Fixed sidebar stays visible while scrolling */
+.admin-sidebar {
+
+    /* Sidebar width */
+    width: 240px;
+
+    /* Pink gradient background */
+    background: linear-gradient(180deg, #c2185b, #880e4f);
+
+    /* Inner spacing */
+    padding: 30px 20px;
+
+    /* Arrange sidebar items vertically */
+    display: flex;
+    flex-direction: column;
+
+    /* Make sidebar full screen height */
+    min-height: 100vh;
+
+    /* Keep sidebar fixed on the left */
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    /* Keep sidebar above other content */
+    z-index: 100;
+}
+
+
+/* Admin logo section at top of sidebar */
+.admin-logo {
+
+    /* White text colour */
+    color: #fff;
+
+    /* Larger font size */
+    font-size: 1.2rem;
+
+    /* Bold text */
+    font-weight: 700;
+
+    /* Space below logo */
+    margin-bottom: 35px;
+
+    /* Slight spacing between letters */
+    letter-spacing: 0.5px;
+}
+
+
+/* Sidebar navigation links */
+.admin-nav-link {
+
+    /* Make links take full width */
+    display: block;
+
+    /* Light pink text colour */
+    color: #f8bbd0;
+
+    /* Remove underline */
+    text-decoration: none;
+
+    /* Space inside links */
+    padding: 12px 15px;
+
+    /* Rounded corners */
+    border-radius: 10px;
+
+    /* Small gap between links */
+    margin-bottom: 5px;
+
+    /* Font size */
+    font-size: 0.92rem;
+
+    /* Medium bold text */
+    font-weight: 500;
+
+    /* Smooth hover animation */
+    transition: background 0.2s, color 0.2s;
+}
+
+
+/* Hover effect for sidebar links */
+.admin-nav-link:hover {
+
+    /* Transparent white background on hover */
+    background: rgba(255,255,255,0.15);
+
+    /* Change text colour to white */
+    color: #fff;
+}
+
+
+/* Main admin content section */
+/* Positioned to the right of sidebar */
+.admin-content {
+
+    /* Push content away from fixed sidebar */
+    margin-left: 240px;
+
+    /* Inner spacing */
+    padding: 40px;
+
+    /* Allow content to fill remaining space */
+    flex: 1;
+
+    /* Light pink background */
+    background: #fff8f9;
+
+    /* Full page height */
+    min-height: 100vh;
+}
+
+
+/* Dashboard statistics cards */
+.stat-card {
+
+    /* White card background */
+    background: #fff;
+
+    /* Rounded corners */
+    border-radius: 16px;
+
+    /* Inner spacing */
+    padding: 25px 20px;
+
+    /* Soft shadow effect */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+    /* Smooth hover animation */
+    transition: transform 0.2s;
+}
+
+
+/* Hover effect for statistics cards */
+.stat-card:hover {
+
+    /* Move card slightly upward */
+    transform: translateY(-3px);
+}
+
+
+/* Large icon inside statistics cards */
+.stat-icon {
+
+    /* Bigger icon size */
+    font-size: 2rem;
+
+    /* Space below icon */
+    margin-bottom: 8px;
+}
+
+
+/* Main number displayed inside cards */
+.stat-number {
+
+    /* Large bold number */
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    /* Dark grey text */
+    color: #333;
+}
+
+
+/* Small label under statistic number */
+.stat-label {
+
+    /* Smaller text */
+    font-size: 0.85rem;
+
+    /* Light grey colour */
+    color: #999;
+
+    /* Small space above label */
+    margin-top: 4px;
+}
+
+
+/* Responsive design for smaller screens */
+/* Applied on tablets and mobile devices */
+@media (max-width: 768px) {
+
+    /* Mobile sidebar layout */
+    .admin-sidebar {
+
+        /* Full width sidebar */
+        width: 100%;
+
+        /* Allow height to adjust automatically */
+        height: auto;
+
+        /* Remove fixed positioning */
+        position: relative;
+
+        /* Arrange links horizontally */
+        flex-direction: row;
+
+        /* Allow links to wrap onto next line */
+        flex-wrap: wrap;
+
+        /* Smaller padding */
+        padding: 15px;
+
+        /* Space between wrapped items */
+        gap: 5px;
+    }
+
+
+    /* Mobile content layout */
+    .admin-content {
+
+        /* Remove left margin since sidebar is no longer fixed */
+        margin-left: 0;
+
+        /* Smaller padding for mobile */
+        padding: 20px;
+    }
+
+
+    /* Smaller navigation links on mobile */
+    .admin-nav-link {
+
+        /* Smaller padding */
+        padding: 8px 12px;
+
+        /* Smaller font size */
+        font-size: 0.8rem;
+    }
+}
