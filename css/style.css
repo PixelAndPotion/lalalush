@@ -75,6 +75,10 @@ body {
     min-height: 450px;
     padding: 100px 20px;
 
+    background-image: url("../images/products/banner.jpg"); /* restored banner */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     background-color: #fff0f5; /* fallback */
 }
@@ -114,9 +118,9 @@ body {
 .banner-img-fallback {
     display: block;
     width: 100%;
-    height: 300px;       /* nice banner strip height */
+    height: 300px;       /* banner strip height */
     object-fit: cover;
-    border-radius: 0;
+    border-radius: 0;    /* fixed: was invalid */
     margin-bottom: 18px;
 }
 
