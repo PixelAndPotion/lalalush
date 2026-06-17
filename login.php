@@ -28,22 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Please enter both username and password.';
     } else {
 
-        // Look for user
-        $query = "SELECT * FROM users 
-                  WHERE username='$username' 
-                  OR email='$username'
-                  LIMIT 1";
+        // Correct prepared statement with two placeholders
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? OR email = ? LIMIT 1");
+        $stmt->bind_param("ss", $username, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        $result = mysqli_query($conn, $query);
-
-        if ($result && mysqli_num_rows($result) === 1) {
-
-            $user = mysqli_fetch_assoc($result);
+        if ($result && $result->num_rows === 1) {
+            $user = $result->fetch_assoc();
 
             // Check password
             if (password_verify($password, $user['password_hash'])) {
 
-                // SET SESSION
+                // SET SESSION (matches DB schema)
                 $_SESSION['user_id']   = $user['user_id'];
                 $_SESSION['username']  = $user['username'];
                 $_SESSION['full_name'] = $user['full_name'];

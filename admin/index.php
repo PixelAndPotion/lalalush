@@ -54,22 +54,16 @@ $recent_orders = mysqli_query($conn, "
     LIMIT 5
 ");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Admin Dashboard | La La Lush</title>
-
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../admin/css/admin-style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
 </head>
-
 <body>
 
 <div class="admin-layout">
@@ -136,9 +130,7 @@ $recent_orders = mysqli_query($conn, "
 
         </div>
 
-        <h4 style="color:#333; margin-bottom:15px;">
-            Recent Orders
-        </h4>
+        <h4 style="color:#333; margin-bottom:15px;">Recent Orders</h4>
 
         <div style="overflow-x:auto;">
 
@@ -159,38 +151,28 @@ $recent_orders = mysqli_query($conn, "
                 <tbody>
 
                 <?php while ($ord = mysqli_fetch_assoc($recent_orders)): ?>
-
                     <tr>
-
                         <td>#<?= $ord['order_id'] ?></td>
-
                         <td>
                             <?= htmlspecialchars($ord['full_name']) ?><br>
                             <small style="color:#999;">
                                 <?= htmlspecialchars($ord['username']) ?>
                             </small>
                         </td>
-
                         <td>R <?= number_format($ord['total_amount'], 2) ?></td>
-
                         <td><?= strtoupper($ord['payment_method']) ?></td>
-
                         <td>
                             <span style="background:#e75480; color:#fff; padding:3px 10px; border-radius:12px; font-size:0.78rem;">
                                 <?= $ord['order_status'] ?>
                             </span>
                         </td>
-
                         <td><?= date('d M Y', strtotime($ord['created_at'])) ?></td>
-
                         <td>
                             <a href="orders.php?id=<?= $ord['order_id'] ?>" style="color:#e75480;">
                                 Manage
                             </a>
                         </td>
-
                     </tr>
-
                 <?php endwhile; ?>
 
                 </tbody>
@@ -210,6 +192,5 @@ $recent_orders = mysqli_query($conn, "
 </div>
 
 <script src="../js/main.js"></script>
-
 </body>
 </html>

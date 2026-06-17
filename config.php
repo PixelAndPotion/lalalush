@@ -2,26 +2,24 @@
 // La La Lush C2C E Commerce system configuration file
 // This file handles database connection, sessions, and global settings
 
-// error reporting for development for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Turn off error display on live server
+error_reporting(0);
+ini_set('display_errors', 0);
 
-// Database connection details used by all pages in the system
-
-// Database host (localhost is used for XAMPP local development)
+// Database host - localhost on shared hosting
 define('DB_HOST', 'localhost');
 
-// Name of the database created in phpMyAdmin
-define('DB_NAME', 'lalalush_db');
+// Live database name prefixed by hosting provider
+define('DB_NAME', 'lalalush_lalalushdb');
 
-// MySQL username (default is root for XAMPP)
-define('DB_USER', 'root');
+// Live database username
+define('DB_USER', 'lalalush_user1');
 
-// MySQL password (empty by default on XAMPP)
-define('DB_PASS', '');
+// Live database password
+define('DB_PASS', 'Jellyf1$h23');
 
-// Website base URL used for links and redirects
-define('SITE_URL', 'http://localhost/lalalush');
+// Website base URL
+define('SITE_URL', 'https://www.lalalush.site');
 
 // Website name used in page titles and system messages
 define('SITE_NAME', 'La La Lush');
@@ -34,7 +32,7 @@ if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-// Set database character encoding for emojis
+// Set database character encoding for emojis and special characters
 mysqli_set_charset($conn, "utf8");
 
 // Start session to track logged-in users across pages
