@@ -6,7 +6,7 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 
-// Database host - localhost on shared hosting
+// Database host localhost on shared hosting
 define('DB_HOST', 'localhost');
 
 // Live database name prefixed by hosting provider
